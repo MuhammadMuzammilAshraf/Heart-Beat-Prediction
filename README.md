@@ -1,37 +1,40 @@
-# Time Series Analysis: Heart Rate Prediction
-This repository contains code for performing time series analysis on heart rate data. The data is loaded from the train.csv file, and various time series techniques are applied to analyze and predict heart rate values.
-## Project Structure
-The project is organized as follows:
+# Heart Rate Prediction using Time Series Analysis
 
-trainrain.csv: The dataset containing heart rate data over time.
-Time Series.ipynb: Jupyter Notebook containing the entire time series analysis pipeline.
-requirements.txt: File listing the project's dependencies. You can use this file to install the required libraries.
+## Introduction
+Sudden variations in heart rate can pose serious health risks, including stroke, heart failure, and sudden cardiac arrest. This project focuses on leveraging time series analysis and AI techniques to predict heart rate, enabling early detection and treatment of health issues. In this README, we provide a step-by-step guide on how to build a heart rate prediction model using Python and time series analysis.
 
-## Data Analysis and Preprocessing
-The Time Series.ipynb notebook starts with data analysis and preprocessing. It includes steps to clean the data, remove irrelevant columns, and detect and remove outliers.
+## Dependencies
+Before running the code, make sure you have the following Python libraries installed:
+- pandas
+- numpy
+- matplotlib
+- statsmodels
+You can install these dependencies using pip
 
-## Time Series Visualization
-The notebook then visualizes the heart rate data over time using matplotlib. It shows a line plot of heart rate values and their corresponding timestamps.
 
-## Exponential Smoothing
-The project uses simple exponential smoothing from the statsmodels library to model and forecast the heart rate values. It fits two different models with different smoothing levels and visualizes the results.
+## Dataset
+We use a dataset collected from medical sensors, containing approximately four hours of heart rate data for a patient. The dataset includes timestamps and heart rate values. To maintain data privacy, we have not provided the dataset here, but you can replace `PT_Train.csv` with your own dataset or obtain a similar dataset from a relevant source.
 
-## Differencing for Stationarity
-To make the data stationary, the notebook performs differencing by subtracting each heart rate value from its previous value. The Dickey-Fuller test is then used to check for stationarity.
+## Data Preprocessing
+- We perform data cleaning by removing irrelevant columns.
+- We detect and remove outliers to ensure data quality.
+- We check for missing values in the dataset.
 
-## Auto-regressive Model
-The notebook uses an auto-regressive model to analyze the autocorrelation of the time series. It plots the autocorrelation and partial autocorrelation functions to determine the order of the model.
-
-## SARIMAX Model
-The notebook fits a Seasonal Autoregressive Integrated Moving Average with eXogenous regressors (SARIMAX) model to the heart rate data. It uses the statsmodels library for this purpose.
+## Model Building
+- We use the Augmented Dickey-Fuller test to check for stationarity.
+- We apply differencing to make the data stationary.
+- We visualize autocorrelation and partial autocorrelation plots to determine model parameters.
+- We build a SARIMAX model with appropriate parameters.
 
 ## Model Evaluation
-The trained SARIMAX model is evaluated on a test set, and performance metrics, such as Mean Square Error (MSE) and Mean Absolute Error (MAE), are calculated and displayed.
+- We evaluate the model's performance using metrics such as RMSE (Root Mean Square Error), MAE (Mean Absolute Error), and MSE (Mean Squared Error).
 
-## Heart Rate Prediction
-Finally, the notebook predicts heart rate values for the next twenty minutes using the trained SARIMAX model. The predictions are visualized and compared to the actual heart rate values.
+## Future Work
+There is room for improvement in this project. Future work may include:
+- Exploring different time series models for better predictions.
+- Incorporating more features and external data sources to enhance accuracy.
+- Developing a user-friendly interface for healthcare professionals to use the model.
 
-## Conclusion
-This project demonstrates various time series analysis techniques, including data preprocessing, visualization, and modeling, to predict heart rate values. Feel free to explore the code, modify the models, and experiment with different time series forecasting approaches.
+---
 
-For any questions or feedback, please don't hesitate to contact the project owner.
+To predict heart rate for the next 20 minutes, you can use the provided code in your preferred Python environment. The results will help in early detection and monitoring of heart rate variations.
